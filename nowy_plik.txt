@@ -1,1 +1,1 @@
-
+"To jest nowy plik na potrzeby zadania 2." 
