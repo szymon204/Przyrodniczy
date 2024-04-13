@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strona typu Allegro</title>
+<link rel="stylesheet" href="style.css">
+<style>
+ 
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+    Dzisiejsza data: <span id="dzisiejszaData"></span>
+</div>
+
+<ul class="nav-links">
+<li><a href="#" onclick="pokazKomunikat()">Oferty</a></li>
+<li><a href="#" onclick="pokazKomunikat2()">Dodaj ogłoszenie</a></li>
+
+</ul>
+
+<form class="search-form">
+    <input id="searchInput" type="text" placeholder="Wyszukaj...">
+    <button type="button" onclick="search()">Szukaj po nazwie</button>
+</form>
+</nav>
+
+<aside class="sidebar">
+    <h2>Dostępne produkty</h2>
+    <ul class="categories">
+<li>Replika stadionu Santiago Bernabeu składa się z 300 klocków. <a href="wiecejinformacjisantiago.html">Przeczytaj więcej.</a></li>
+<li>Replika stadionu Camp Nou składa się z 270 klocków. <a href="wiecejinformacjicampnoou.html"> Przeczytaj więcej.</a></li>
+<li>Replika stadionu INEA składa się z 620 klocków. <a href="wiecejinformacji.html">Przeczytaj więcej.</a></li>
+<li>Replika stadionu Parc des princes składa się z 280 klocków. <a href="wiecejinformacjipsg.html">Przeczytaj więcej.</a> </li>
+    </ul>
+</aside>
+
+<main class="main-content">
+
+<div class="offer" id="offer1">
+    <a href="wiecejinformacjisantiago.html">
+    <img src="santiago bernabeu.jpg" alt="Real Madryt">
+    <h3>Replika stadionu Santiago Bernabeu</h3>
+    <p>Cena: 2400zł</p>
+    <p>Lokalizacja: Madryt</p>
+    </a>
+</div>
+
+<div class="offer" id="offer2">
+    <a href="wiecejinformacji.html">
+    <img src="lech poznan.jpg" alt="Lech Poznań">
+    <h3>Replika stadionu INEA</h3>
+    <p>Cena: 240zł</p>
+    <p>Lokalizacja: Poznań</p>
+</a>
+</div>
+
+<div class="offer" id="offer3">
+    <a href="wiecejinformacjicampnoou.html">
+    <img src="camp nou.jpg" alt="Camp Nou">
+    <h3>Replika stadionu Camp Nou</h3>
+    <p>Cena: 550zł</p>
+    <p>Lokalizacja: Barcelona</p>
+    </a>
+</div>
+
+<div class="offer" id="offer4">
+    <a href="wiecejinformacjipsg.html">
+        <img src="psg.jpg" alt="Parc des prence">
+        <h3>Replika stadionu Stadion Parc des Princes</h3>
+        <p>Cena: 2200zł</p>
+        <p>Lokalizacja: Paryż</p>
+    </a>
+</div>
+
+</main>
+
+<script>
+    function search() { 
+        var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        var offers = document.querySelectorAll('.offer');
+        
+        
+        offers.forEach(function(offer) {
+            offer.style.display = 'none';
+        });
+
+        
+        offers.forEach(function(offer) {
+            var offerText = offer.innerText.toLowerCase();
+            if (offerText.includes(searchTerm)) {
+                offer.style.display = 'block';
+            }
+        });
+    }
+</script>
+<script>
+    function dzisiejszaData() {
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() +1;
+    var year = currentDate.getFullYear();
+    var godziny = currentDate.getHours();
+    var minuty = currentDate.getMinutes();
+    var sekundy = currentDate.getSeconds();
+
+   
+    godziny = (godziny < 10) ? "0" + godziny : godziny;
+    minuty = (minuty < 10) ? "0" + minuty : minuty;
+    sekundy = (sekundy < 10) ? "0" + sekundy : sekundy;
+
+    var dataString = day + '/' + month + '/' + year + "     " + godziny + ":" + minuty + ":" + sekundy;
+
+    var logoElement = document.querySelector('.logo');
+    logoElement.textContent = "Witaj na naszej stronie! " + dataString;
+}
+
+dzisiejszaData();
+
+setInterval(dzisiejszaData, 1000);
+
+function pokazKomunikat() {
+    alert("Komunikat: To są wszystkie aktualnie dostępne oferty.");
+}
+
+function pokazKomunikat2() {
+    alert("Komunikat: Dodawanie ogłoszeń jest aktualnie niedostępne.");
+}
+</script>
+</body>
+</html>
