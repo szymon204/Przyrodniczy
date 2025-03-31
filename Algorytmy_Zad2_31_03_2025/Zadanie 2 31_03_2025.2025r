@@ -1,0 +1,65 @@
+## a) Tablica liczb calkowitych, kolejnosc liczb dodatnich i ujemnych: 
+def kolejnoscLiczb(arr):
+    ujemne = []
+    dodatnie = []
+    for numer in arr:
+        if numer < 0:
+            ujemne.append(numer)
+        else:
+            dodatnie.append(numer)
+    return ujemne + dodatnie
+arr = [1, -8, 2, -5, 4, -2, 100, -1]
+wynik = kolejnoscLiczb(arr)
+print(wynik)
+
+## b) Znajdywanie brakujacej liczby:
+def brakujacaLiczba(arr, n):
+    liczby_w_tablicy = []
+    for num in arr:
+        liczby_w_tablicy.append(num)
+    
+    for i in range(min(arr), n + 1):
+        if i not in liczby_w_tablicy:
+            return i
+    return None
+arr = [98, 99, 101, 102]
+n = 102
+szukanaLiczba = brakujacaLiczba(arr, n)
+print(f"Brakujaca liczba to: {szukanaLiczba}")
+
+## c) Znajdywanie duplikatow w tablicy:
+def znajdz_duplikaty(arr):
+    duplikaty = []
+    sprawdzone = []
+    
+    for i in range(len(arr)):
+        licznik = 0 
+
+        for j in range(len(arr)):
+            if arr[i] == arr[j]:
+                licznik += 1  
+
+        if licznik > 1 and arr[i] not in sprawdzone:
+            duplikaty.append(arr[i])
+            sprawdzone.append(arr[i])
+
+    return duplikaty
+    
+# Testowanie:
+arr = [1, 2, 3, 4, 5, 2, 3, 6, 7, 3]
+wynik = znajdz_duplikaty(arr)
+print("Duplikaty:", wynik)
+
+## d) Zamiana elementow tablicy:
+def zamianaElementowTablicy(arr):
+    n = len(arr)
+    for i in range(n // 2):
+        temp = arr[i]  
+        arr[i] = arr[n - i - 1]  
+        arr[n - i - 1] = temp  
+    return arr
+
+# Testowanie:
+arr = [1, 2, 3, 4, 5, 6]
+wynik = zamianaElementowTablicy(arr)
+print("Obrocona tablica:", wynik)
