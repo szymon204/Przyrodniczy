@@ -70,7 +70,7 @@ font = QFont("Arial", 20)
 label.setFont(font)
 
 # Ustawienie koloru tła
-window.setStyleSheet("background-color: orange;")  # Kolor tła okna na pomarańczowy
+window.setStyleSheet("background-color: orange;")  # Kolor tła okna na pomarańczowy s
 
 # Dodanie linku do etykiety
 label.setText('<a href="https://www.google.com" style="color: blue;">Kliknij aby otworzyć Google</a>')
